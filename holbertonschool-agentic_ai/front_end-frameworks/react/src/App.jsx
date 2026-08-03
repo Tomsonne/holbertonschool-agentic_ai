@@ -1,4 +1,4 @@
-import { Camera, Moon, Sun } from "lucide-react";
+import { Camera, Moon, Sun, Baby } from "lucide-react";
 function App() {
   return (
     <>
@@ -7,6 +7,9 @@ function App() {
      <Camera color="red" size={48} />
      <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
+
+      <Baby className="swap-on text-green-500" />
+
   <input className="theme-controller" type="checkbox" value="dark" />
 
     {/* Sun icon */}
