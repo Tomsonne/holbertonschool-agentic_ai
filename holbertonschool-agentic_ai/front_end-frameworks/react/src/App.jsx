@@ -8,7 +8,7 @@ function App() {
      <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
 
-      <Baby className="swap-on text-green-500" />
+      <Baby color="blue" size={88} />
 
   <input className="theme-controller" type="checkbox" value="dark" />
 
