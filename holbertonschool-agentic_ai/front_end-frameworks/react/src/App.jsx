@@ -3,6 +3,7 @@ function App() {
   return (
     <>
      <h1 className="text-4xl text-red-500">Mon super projet React !!!</h1>
+     <h2 className="text-4xl text-red-500">gh_page meilleur que verce !!!</h2>
      <Camera color="red" size={48} />
      <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
