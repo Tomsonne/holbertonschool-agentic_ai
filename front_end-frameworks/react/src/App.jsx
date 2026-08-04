@@ -1,24 +1,25 @@
-import { Camera, Moon, Sun, Baby } from "lucide-react";
+import { Camera, Moon, Sun, Baby } from "lucide-react"; // importe icone via lucide react
+import Header from "./components/Header.jsx"; // importe mon header 
+import Hero from "./sections/Hero.jsx"; // importe ma section hero
+
 function App() {
   return (
-    <>
-     <h1 className="text-4xl text-red-500">Mon super projet React !!!</h1>
-     <h2 className="text-2xl text-gray-700">gh_page meilleur que vercel et oui !!!</h2>
-     <Camera color="red" size={48} />
-     <label className="swap swap-rotate">
-  {/* this hidden checkbox controls the state */}
+  <>
+    <Header />
+    <Hero />
 
-      <Baby color="blue" size={88} />
+    <label className="swap swap-rotate"> {/* ajoute label pour dark mode */}
 
-  <input className="theme-controller" type="checkbox" value="dark" />
+  < input className="theme-controller" type="checkbox" value="dark" />
 
     {/* Sun icon */}
     <Sun className="swap-on text-red-500" />
-    
+
     {/* Moon icon */}
     <Moon className="swap-off text-red-500" />
     </label>
-    </>
+
+  </>
   );
 }
 
