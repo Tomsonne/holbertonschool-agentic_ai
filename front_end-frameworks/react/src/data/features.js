@@ -17,7 +17,7 @@ const features = [
     {
         icon: Workflow,
         title: "Multi-step planning",
-        description: "TBreak down complex goals into actionable steps with intelligent planning.",
+        description: "Break down complex goals into actionable steps with intelligent planning.",
     },
     {
         icon: Brain,
@@ -26,7 +26,7 @@ const features = [
     },
     {
         icon: Database,
-        title: "Memory & context ",
+        title: "Memory & context",
         description: "Persistent memory allows agents to learn and improve over time.",
     },
     {
