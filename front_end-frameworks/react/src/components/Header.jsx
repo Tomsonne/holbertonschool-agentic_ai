@@ -3,11 +3,10 @@ import { BrainCircuit } from "lucide-react";
 
 function Header() {
   return (
-    <header className="fixed top-0 z-50 w-full bg-slate-950 p-2 text-white">
-        
-        {/* mx auto centrage horizontal / flex enfant sur meme ligne 
-        / items-center centre les enfants / justify-betwenn place le premier a gauche et dernier a droite donc ici enroll now en dernier */}
-        <div className="container mx-auto mx-auto flex items-center justify-between"> 
+
+    <header className="fixed top-0 z-50 w-full bg-slate-950 text-white">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
+    
             <a
             href="#home-section"
             className="flex items-center gap-2"
@@ -17,7 +16,7 @@ function Header() {
                 </div>
                 <span className="text-slate-50 font-bold"> 
                     Agentic AI
-                </span> 
+                </span>
             </a>
             <div className="ml-auto flex items-center gap-4"> {/* ml-auto pousse vers la droit margin left marge a gauche  */}
             <nav aria-label="Main navigation" className="hidden md:block">

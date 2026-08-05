@@ -14,7 +14,7 @@ function About() {
                 <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
             </p>
 
-            <h1 className= "text-5xl md:text-7xl font-black tracking-tight leading-none">
+            <h2 className= "text-4xl md:text-5xl font-black tracking-tight leading-none">
                 
                 <span className="text-slate-50">
                     AI that does more than answer<br />
@@ -23,7 +23,7 @@ function About() {
                 <span className="text-violet-300">
                     It acts with purpose
                 </span>
-            </h1>
+            </h2>
 
             <br />
 
