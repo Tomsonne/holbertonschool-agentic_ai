@@ -1,24 +1,28 @@
 import { Camera, Moon, Sun, Baby } from "lucide-react"; // importe icone via lucide react
 import Header from "./components/Header.jsx"; // importe mon header 
 import Hero from "./sections/Hero.jsx"; // importe ma section hero
+import About from "./sections/About.jsx";
 
 function App() {
   return (
   <>
     <Header />
-    <Hero />
+    <main>
 
-    <label className="swap swap-rotate"> {/* ajoute label pour dark mode */}
+      <Hero />
 
-  < input className="theme-controller" type="checkbox" value="dark" />
+      <About />
+      <label className="swap swap-rotate"> {/* ajoute label pour dark mode */}
 
-    {/* Sun icon */}
-    <Sun className="swap-on text-red-500" />
+        < input className="theme-controller" type="checkbox" value="dark" />
 
-    {/* Moon icon */}
-    <Moon className="swap-off text-red-500" />
-    </label>
+        {/* Sun icon */}
+        <Sun className="swap-on text-red-500" />
 
+        {/* Moon icon */}
+        <Moon className="swap-off text-red-500" />
+      </label>
+    </main>
   </>
   );
 }

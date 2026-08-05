@@ -4,7 +4,8 @@ function Hero() {
     return (
         <section
             id="hero-section"
-            className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 px-4 pt-36 pb-24 text-center"
+            className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 px-4 pt-36 pb-24 text-center "
+            
         >
             <p className="mb-4 inline-flex items-center gap-1 rounded-full bg-violet-500/10 px-4 py-2 text-xs font-semibold text-violet-300 border border-violet-500/20">
                 <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
