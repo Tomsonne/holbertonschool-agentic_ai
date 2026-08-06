@@ -9,7 +9,7 @@ function Features() {
             id="features-section"
             className="max-w-6xl mx-auto px-6 flex min-h-screen flex-col items-center justify-center py-24 text-center"
         >
-            <p className="mb-4 inline-flex items-center gap-1 rounded-full bg-violet-500/10 px-4 py-2 text-xs font-semibold text-violet-300 border border-violet-500/20">
+            <p className="mb-4 inline-flex items-center gap-1 rounded-full bg-violet-500/10 px-4 py-2 text-xs text-violet-300 border border-violet-500/20">
                 <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
                     Features
                 <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />

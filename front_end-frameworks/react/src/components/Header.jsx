@@ -4,7 +4,7 @@ import { BrainCircuit } from "lucide-react";
 function Header() {
   return (
 
-    <header className="fixed top-0 z-50 w-full bg-slate-950 text-white">
+    <header className="fixed top-0 z-50 w-full bg-slate-950 text-slate-50">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
     
             <a
@@ -23,7 +23,7 @@ function Header() {
                 <ul className="flex gap-4">
                     <li>
                         <a
-                            className="font-bold text-slate-500 hover:text-white text-sm"
+                            className="font-bold text-slate-500 hover:text-slate-50 text-sm"
                             href="#about-section"
                         >
                             About
@@ -32,7 +32,7 @@ function Header() {
 
                     <li>
                         <a
-                            className="font-bold text-slate-500 hover:text-white text-sm"
+                            className="font-bold text-slate-500 hover:text-slate-50 text-sm"
                             href="#features-section"
                         >
                             Features

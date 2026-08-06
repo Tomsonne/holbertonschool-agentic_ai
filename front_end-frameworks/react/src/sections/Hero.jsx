@@ -7,7 +7,7 @@ function Hero() {
             className="min-h-screen pt-36 pb-24"
         >
             <div className="max-w-6xl mx-auto flex flex-col items-center px-6 text-center">
-                <p className="inline-flex items-center gap-1 rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-2 text-xs font-semibold text-violet-300">
+                <p className="inline-flex items-center gap-1 rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-2 text-xs text-violet-300">
                     <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
 
                     The future of coding
@@ -34,7 +34,7 @@ function Hero() {
                 <div className="mt-12 flex flex-col gap-4 sm:flex-row">
                     <a
                         href="#contact-section"
-                        className="flex items-center gap-2 rounded-md bg-violet-500 px-4 py-2 font-semibold text-white shadow-lg shadow-violet-500/40 hover:bg-violet-600"
+                        className="flex items-center gap-2 rounded-md bg-violet-500 px-4 py-2 font-semibold text-slate-50 shadow-lg shadow-violet-500/40 hover:bg-violet-600"
                     >
                         Start learning with Holberton School
 

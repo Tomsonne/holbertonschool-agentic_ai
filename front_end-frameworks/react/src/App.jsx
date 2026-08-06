@@ -2,7 +2,9 @@ import { Camera, Moon, Sun, Baby } from "lucide-react"; // importe icone via luc
 import Header from "./components/Header.jsx"; // importe mon header 
 import Hero from "./sections/Hero.jsx"; // importe ma section hero
 import About from "./sections/About.jsx";
-import Features from "./sections/Features.jsx"; 
+import Features from "./sections/Features.jsx";
+import Insights from "./sections/Insights.jsx";
+import Contact from "./sections/Contact.jsx";
 
 function App() {
   return (
@@ -15,6 +17,10 @@ function App() {
       <About />
 
       <Features />
+
+      <Insights />
+
+      <Contact />
       
       <label className="swap swap-rotate"> {/* ajoute label pour dark mode */}
 
