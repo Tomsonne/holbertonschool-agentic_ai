@@ -92,7 +92,6 @@ function Contact() {
         }, 2500);
     };
 
-
     return (
         <section
             id="contact-section"
