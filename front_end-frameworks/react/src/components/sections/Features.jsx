@@ -1,6 +1,6 @@
 import { Astroid } from "lucide-react";
-import FeatureCard from "../components/FeatureCard.jsx";
-import features from "../data/features.js";
+import FeatureCard from "../cards/FeatureCard.jsx";
+import features from "../../data/features.js";
 
 
 function Features() {

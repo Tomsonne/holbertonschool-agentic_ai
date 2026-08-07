@@ -1,5 +1,5 @@
 import { Astroid, MoveRight } from "lucide-react";
-import steps from "../data/steps.Js";
+import steps from "../../data/steps.Js";
 
 
 function About() {

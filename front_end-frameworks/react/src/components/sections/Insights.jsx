@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Astroid } from "lucide-react";
-import InsightCard from "../components/InsightCard.jsx";
-import { getInsights } from "../services/insightsService.js";
+import InsightCard from "../cards/InsightCard.jsx";
+import { getInsights } from "../../services/insightsService.js";
 
 
 function Insights() {

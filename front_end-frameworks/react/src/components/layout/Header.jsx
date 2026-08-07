@@ -8,13 +8,13 @@ function Header() {
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
     
             <a
-            href="#home-section"
+            href="#hero-section"
             className="flex items-center gap-2"
             >
                 <div className="rounded-lg bg-violet-500 p-2">
                     <BrainCircuit size={14} />
                 </div>
-                <span className="text-slate-50 font-bold"> 
+                <span className="text-slate-50 "> 
                     Agentic AI
                 </span>
             </a>
@@ -23,7 +23,7 @@ function Header() {
                 <ul className="flex gap-4">
                     <li>
                         <a
-                            className="font-bold text-slate-500 hover:text-slate-50 text-sm"
+                            className=" text-slate-500 hover:text-slate-50 text-sm"
                             href="#about-section"
                         >
                             About
@@ -32,7 +32,7 @@ function Header() {
 
                     <li>
                         <a
-                            className="font-bold text-slate-500 hover:text-slate-50 text-sm"
+                            className=" text-slate-500 hover:text-slate-50 text-sm"
                             href="#features-section"
                         >
                             Features
@@ -41,7 +41,7 @@ function Header() {
 
                     <li>
                         <a
-                            className="font-bold text-slate-500 hover:text-white text-sm"
+                            className=" text-slate-500 hover:text-white text-sm"
                             href="#insights-section"
                         >
                             Insights
@@ -50,7 +50,7 @@ function Header() {
 
                     <li>
                         <a
-                            className="font-bold text-slate-500 hover:text-white text-sm"
+                            className=" text-slate-500 hover:text-white text-sm"
                             href="#contact-section"
                         >
                             Contact
