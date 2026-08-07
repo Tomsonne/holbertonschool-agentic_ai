@@ -1,29 +1,13 @@
-import { Astroid, MoveRight } from "lucide-react";
-import steps from "../../data/steps.Js";
-
+import SectionBadge from "../ui/SectionBadge.jsx";
+import steps from "../../data/step.js";
+import SectionTitle from "../ui/SectionTitle.jsx";
 
 function About() {
     return (
-        <section
-            id="about-section"
-            className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 px-4 pt-36 pb-24 text-center"
-        >
-            <p className="mb-4 inline-flex items-center gap-1 rounded-full bg-violet-500/10 px-4 py-2 text-xs text-violet-300 border border-violet-500/20">
-                <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
-                    What is Agentic AI?
-                <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
-            </p>
+        <section id="about-section" className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 px-4 pt-36 pb-24 text-center">
+            <SectionBadge text="What is Agentic AI?" className="mb-4"/>
 
-            <h2 className= "text-4xl md:text-5xl font-black tracking-tight leading-none">
-                
-                <span className="text-slate-50">
-                    AI that does more than answer<br />
-                </span> 
-
-                <span className="text-violet-300">
-                    It acts with purpose
-                </span>
-            </h2>
+            <SectionTitle title="AI that does more than answer" highlight="It acts with purpose"/>
 
             <br />
 
@@ -63,10 +47,7 @@ function About() {
                 
                 <ol className="flex flex-col gap-6">
                     {steps.map((step) => (
-                        <li
-                            key = {step.number}
-                            className="relative flex flex-col items-start pl-12 text-start"
-                        >
+                        <li key = {step.number} className="relative flex flex-col items-start pl-12 text-start">
                             <span className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-violet-500 text-xs font-black text-slate-50 shadow-lg shadow-violet-500/40">
                                 {step.number}
                             </span>

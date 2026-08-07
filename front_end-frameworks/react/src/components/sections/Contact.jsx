@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
     ArrowRight,
-    Astroid,
     Sparkles,
     FolderCode,
     AtSign,
@@ -9,7 +8,8 @@ import {
     User,
     Users,
 } from "lucide-react";
-
+import SectionBadge from "../ui/SectionBadge.jsx";
+import SectionTitle from "../ui/SectionTitle.jsx";
 
 const initialFormData = {
     fullName: "",
@@ -93,25 +93,11 @@ function Contact() {
     };
 
     return (
-        <section
-            id="contact-section"
-            className="max-w-6xl mx-auto px-6 flex flex-col items-center py-24"
-        >
-            <p className="mb-4 inline-flex items-center gap-1 rounded-full bg-violet-500/10 px-4 py-2 text-xs text-violet-300 border border-violet-500/20">
-                <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
-                    Start your AI journey
-                <Astroid color="#C4B5FD" fill="#C4B5FD" size={8} />
-            </p>
+        <section id="contact-section" className="max-w-6xl mx-auto px-6 flex flex-col items-center py-24">
+            
+            <SectionBadge text="Start your AI journey" className="mb-4"/>
 
-            <h2 className="text-center text-4xl font-black leading-none tracking-tight md:text-5xl">
-                <span className="text-slate-50">
-                    Ready to explore
-                </span>
-
-                <span className="block text-violet-300">
-                    Agentic AI?
-                </span>
-            </h2>
+            <SectionTitle title="Ready to explore" highlight="Agentic AI?"/>
 
             <div className="relative mx-auto flex max-w-6xl flex-col items-center text-center">
                 <div className="flex w-full flex-col items-center text-center">
@@ -127,39 +113,25 @@ function Contact() {
                             <ArrowRight size={18} />
                         </a>
 
-                        <a
-                            href="#features-section"
-                            className="inline-flex items-center justify-center rounded-md border border-slate-800 bg-slate-950 px-4 py-3 text-slate-50 transition hover:bg-slate-900"
-                        >
+                        <a href="#features-section"
+                        className="inline-flex items-center justify-center rounded-md border border-slate-800 bg-slate-950 px-4 py-3 text-slate-50 transition hover:bg-slate-900">
                             Need more information?
                         </a>
                     </div>
 
                     <ul className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-8">
                         <li className="flex items-center gap-2 text-sm text-slate-500">
-                            <FolderCode
-                                size={16}
-                                className="text-violet-500"
-                            />
-
+                            <FolderCode size={16} className="text-violet-500"/>
                             <span>Project-based learning</span>
                         </li>
 
                         <li className="flex items-center gap-2 text-sm text-slate-500">
-                            <Users
-                                size={16}
-                                className="text-violet-500"
-                            />
-
+                            <Users size={16} className="text-violet-500"/>
                             <span>Peer learning environment</span>
                         </li>
 
                         <li className="flex items-center gap-2 text-sm text-slate-500">
-                            <Sparkles
-                                size={16}
-                                className="text-violet-500"
-                            />
-
+                            <Sparkles size={16} className="text-violet-500"/>
                             <span>AI-powered workflows</span>
                         </li>
                     </ul>
@@ -172,16 +144,9 @@ function Contact() {
                     className="mt-12 w-full max-w-2xl rounded-3xl border border-slate-800 bg-slate-950 p-8 text-start shadow-xl shadow-slate-950/40"
                 >
                     <div>
-                        <label
-                            htmlFor="fullName"
-                            className="mb-2 flex items-center gap-2 text-sm text-slate-50"
-                        >
-                            <User
-                                size={18}
-                                className="text-violet-300"
-                            />
-
-                            Full name
+                        <label htmlFor="fullName" className="mb-2 flex items-center gap-2 text-sm text-slate-50">
+                            <User size={18} className="text-violet-300"/>
+                                Full name
                         </label>
 
                         <input
@@ -200,16 +165,9 @@ function Contact() {
                     </div>
 
                     <div className="mt-6">
-                        <label
-                            htmlFor="email"
-                            className="mb-2 flex items-center gap-2 text-sm text-slate-50"
-                        >
-                            <AtSign
-                                size={18}
-                                className="text-violet-300"
-                            />
-
-                            Email
+                        <label htmlFor="email" className="mb-2 flex items-center gap-2 text-sm text-slate-50">
+                            <AtSign size={18} className="text-violet-300"/>
+                                Email
                         </label>
 
                         <input
@@ -228,16 +186,9 @@ function Contact() {
                     </div>
 
                     <div className="mt-6">
-                        <label
-                            htmlFor="message"
-                            className="mb-2 flex items-center gap-2 text-sm text-slate-50"
-                        >
-                            <Mail
-                                size={18}
-                                className="text-violet-300"
-                            />
-
-                            Message
+                        <label htmlFor="message" className="mb-2 flex items-center gap-2 text-sm text-slate-50">
+                            <Mail size={18} className="text-violet-300"/>
+                                Message
                         </label>
 
                         <textarea
@@ -273,13 +224,8 @@ function Contact() {
                         )}
                     </button>
 
-                    <div
-                        className="mt-4 min-h-6 text-center"
-                        aria-live="polite"
-                    >
-                        <p
-                            className={"text-sm text-slate-500"}
-                        >
+                    <div className="mt-4 min-h-6 text-center" aria-live="polite">
+                        <p className={"text-sm text-slate-500"}>
                             {feedback}
                         </p>
                     </div>
