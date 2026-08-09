@@ -1,4 +1,5 @@
 import Brand from "../ui/Brand";
+import Button from "../ui/Button.jsx";
 
 function Header() {
   return (
@@ -35,9 +36,9 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-                <button type="button" className="px-4 py-2 font-semibold rounded-md bg-violet-500 hover:bg-violet-600 shadow-lg shadow-violet-500/40 text-sm">
+                <Button className="text-sm" href="https://www.holbertonschool.fr/rejoindre-lhippocamp" target="_blank">
                     Enroll now
-                </button>
+                </Button>
             </div>
         </div>
     </header>

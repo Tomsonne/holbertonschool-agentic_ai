@@ -1,6 +1,8 @@
 import { MoveRight } from "lucide-react";
 import SectionBadge from "../ui/SectionBadge.jsx";
 import StatCard from "../cards/StatCard.jsx";
+import Button from "../ui/Button.jsx";
+
 
 
 function Hero() {
@@ -30,15 +32,14 @@ function Hero() {
                 </p>
 
                 <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-                    <a href="#contact-section" className="flex items-center gap-2 rounded-md bg-violet-500 px-4 py-2 text-slate-50 shadow-lg shadow-violet-500/40 hover:bg-violet-600">
-                        Start learning with Holberton School
-
-                        <MoveRight size={20} />
-                    </a>
-
-                    <a href="#about-section" className="rounded-md border border-slate-800 bg-slate-950 px-4 py-2 text-slate-50 hover:bg-slate-900">
+                    <Button href="#contact-section" className="flex items-center gap-2">
+                            Start learning with Holberton School
+                            <MoveRight size={20} />
+                    </Button>
+                    
+                    <Button href="#about-section" variant="secondary">
                         Methodology
-                    </a>
+                    </Button>
                 </div>
 
                 <dl className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">

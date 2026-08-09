@@ -22,16 +22,6 @@ function App() {
       <Insights />
 
       <Contact />
-      <label className="swap swap-rotate"> {/* ajoute label pour dark mode */}
-
-        < input className="theme-controller" type="checkbox" value="dark" />
-
-        {/* Sun icon */}
-        <Sun className="swap-on text-red-500" />
-
-        {/* Moon icon */}
-        <Moon className="swap-off text-red-500" />
-      </label>
 
       <Footer />
       

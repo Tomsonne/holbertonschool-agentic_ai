@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import SectionBadge from "../ui/SectionBadge.jsx";
 import SectionTitle from "../ui/SectionTitle.jsx";
+import Button from "../ui/Button.jsx";
+
 
 const initialFormData = {
     fullName: "",
@@ -93,7 +95,7 @@ function Contact() {
     };
 
     return (
-        <section id="contact-section" className="max-w-6xl mx-auto px-6 flex flex-col items-center py-24">
+        <section id="contact-section" className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 max-w-6xl mx-auto px-6 py-24  text-center">
             
             <SectionBadge text="Start your AI journey" className="mb-4"/>
 
@@ -102,21 +104,14 @@ function Contact() {
             <div className="relative mx-auto flex max-w-6xl flex-col items-center text-center">
                 <div className="flex w-full flex-col items-center text-center">
                     <div className="mt-8 flex flex-col justify-center gap-4 md:flex-row">
-                        <a
-                            href="https://www.holbertonschool.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 rounded-md bg-violet-500 px-4 py-3 text-slate-50 shadow-lg shadow-violet-500/40 transition hover:bg-violet-600"
-                        >
+                        <Button href="https://www.holbertonschool.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
                             Enroll at Holberton School
-
                             <ArrowRight size={18} />
-                        </a>
-
-                        <a href="#features-section"
-                        className="inline-flex items-center justify-center rounded-md border border-slate-800 bg-slate-950 px-4 py-3 text-slate-50 transition hover:bg-slate-900">
+                        </Button>
+                        
+                        <Button href="#features-section" variant="secondary" className="inline-flex items-center justify-center">
                             Need more information?
-                        </a>
+                        </Button>
                     </div>
 
                     <ul className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-8">

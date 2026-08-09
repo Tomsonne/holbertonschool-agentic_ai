@@ -4,7 +4,7 @@ import SectionTitle from "../ui/SectionTitle.jsx";
 
 function About() {
     return (
-        <section id="about-section" className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 px-4 pt-36 pb-24 text-center">
+        <section id="about-section" className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 max-w-6xl mx-auto px-6 py-24  text-center">
             <SectionBadge text="What is Agentic AI?" className="mb-4"/>
 
             <SectionTitle title="AI that does more than answer" highlight="It acts with purpose"/>

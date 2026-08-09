@@ -39,7 +39,7 @@ function Insights() {
                 )}
             </div>
 
-            <div className="mt-6 grid w-full gap-8 md:grid-cols-2">
+            <div className="mt-6 grid w-full gap-8 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {insights.map((insight, index) => (
                     <InsightCard
                         key={insight.title}
