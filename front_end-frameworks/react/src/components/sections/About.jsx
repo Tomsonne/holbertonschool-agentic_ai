@@ -5,8 +5,8 @@ import SectionTitle from "../ui/SectionTitle.jsx";
 
 function About() {
     return (
-        <section id="about-section" className="bg-slate-950">
-            <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-24 text-center">
+        <section id="about-section" className="bg-black">
+            <div className="max-w-6xl mx-auto px-6 flex flex-col items-center py-24 text-center">
                 <SectionBadge text="What is Agentic AI?" className="mb-4" />
 
 
