@@ -9,15 +9,15 @@ import Contact from "./sections/Contact.vue";
 </script>
 
 <template>
-    <Header />
+  <Header />
 
-    <main>
-        <Hero />
-        <About />
-        <Features />
-        <Insights />
-        <Contact />
-    </main>
+  <main>
+    <Hero />
+    <About />
+    <Features />
+    <Insights />
+    <Contact />
+  </main>
 
-    <Footer />
+  <Footer />
 </template>
