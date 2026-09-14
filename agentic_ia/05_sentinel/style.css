@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #19211d;
+  --muted: #728078;
+  --line: #dce3de;
+  --paper: #f6f8f4;
+  --panel: #ffffff;
+  --lime: #c9f277;
+  --lime-dark: #5d7f27;
+  --coral: #e77961;
+  --soft-green: #e8f2d3;
+  --shadow: 0 18px 45px rgba(36, 54, 42, 0.07);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: 'Manrope', sans-serif; }
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+.app-shell { max-width: 1440px; min-height: 100vh; margin: 0 auto; padding: 0 5vw 28px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; height: 82px; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; }
+.brand-mark { display: grid; width: 35px; height: 35px; place-items: center; border-radius: 11px 11px 11px 3px; background: var(--ink); color: var(--lime); font-weight: 800; }
+.brand strong, .brand small { display: block; }
+.brand strong { font-size: 15px; letter-spacing: .04em; }
+.brand small { margin-top: 2px; color: var(--muted); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.topbar-meta { display: flex; align-items: center; gap: 8px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime-dark); box-shadow: 0 0 0 4px var(--soft-green); }
+.hero { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding: 72px 0 46px; }
+.eyebrow { margin: 0 0 14px; color: var(--lime-dark); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+h1 { max-width: 650px; margin: 0; font-size: clamp(38px, 5vw, 74px); line-height: .98; letter-spacing: -.06em; }
+.hero-copy { margin: 20px 0 0; color: var(--muted); font-size: 16px; }
+.repository-form { width: min(100%, 430px); padding: 22px; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); box-shadow: var(--shadow); }
+.repository-form label { display: block; margin-bottom: 9px; font-size: 12px; font-weight: 700; }
+.repository-fields { display: flex; gap: 8px; }
+input, select { min-width: 0; border: 1px solid var(--line); border-radius: 3px; outline: 0; background: #fbfcfa; color: var(--ink); }
+input:focus, select:focus { border-color: var(--lime-dark); box-shadow: 0 0 0 3px var(--soft-green); }
+.repository-fields input { width: 100%; padding: 12px; font-family: 'DM Mono', monospace; font-size: 12px; }
+.primary-button { border: 0; border-radius: 3px; padding: 0 16px; background: var(--ink); color: white; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.primary-button:hover { background: var(--lime-dark); }
+.primary-button span { margin-right: 5px; color: var(--lime); font-size: 15px; }
+.field-hint { margin: 10px 0 0; color: var(--muted); font-size: 10px; }
+.status-message { margin: -18px 0 28px; border-left: 3px solid var(--coral); padding: 11px 14px; background: #fff0eb; color: #8e3e2e; font-size: 12px; }
+.status-message.success { border-color: var(--lime-dark); background: var(--soft-green); color: #47641e; }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 34px; }
+.metric-card { min-height: 142px; padding: 23px; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
+.metric-card-accent { background: var(--lime); border-color: var(--lime); }
+.metric-label, .metric-note { display: block; font-size: 11px; }
+.metric-label { font-weight: 700; }
+.metric-card strong { display: block; margin: 18px 0 5px; font-size: 39px; letter-spacing: -.06em; }
+.metric-note { color: var(--muted); }
+.metric-card-accent .metric-note { color: #536c2b; }
+.status-bullet { display: inline-block; width: 6px; height: 6px; margin-right: 4px; border-radius: 50%; }
+.status-bullet.open { background: var(--lime-dark); }
+.status-bullet.closed { background: var(--coral); }
+.workspace-panel { overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); box-shadow: var(--shadow); }
+.panel-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 27px 28px 23px; border-bottom: 1px solid var(--line); }
+.panel-toolbar .eyebrow { margin-bottom: 8px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.04em; }
+.toolbar-controls { display: flex; gap: 8px; }
+.search-field, .select-field { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 3px; background: #fbfcfa; }
+.search-field { gap: 5px; padding: 0 10px; }
+.search-field span { color: var(--muted); font-size: 20px; }
+.search-field input { width: 150px; padding: 10px 0; border: 0; background: transparent; font-size: 12px; }
+.search-field input:focus { box-shadow: none; }
+.select-field select { height: 38px; padding: 0 28px 0 10px; border: 0; background: transparent; font-size: 11px; }
+.issues-container { min-height: 300px; }
+.issue-row { display: grid; grid-template-columns: 70px minmax(0, 1fr) 180px 115px; align-items: center; gap: 18px; padding: 20px 28px; border-bottom: 1px solid var(--line); }
+.issue-row:last-child { border-bottom: 0; }
+.issue-number { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; }
+.issue-title { overflow: hidden; color: var(--ink); font-size: 13px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; text-decoration: none; }
+.issue-title:hover { color: var(--lime-dark); }
+.issue-meta { display: flex; align-items: center; gap: 7px; min-width: 0; color: var(--muted); font-size: 11px; }
+.avatar { width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: var(--lime); font-family: 'DM Mono', monospace; font-size: 9px; display: grid; place-items: center; }
+.issue-author { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.issue-state { justify-self: start; padding: 5px 9px; border-radius: 99px; background: var(--soft-green); color: var(--lime-dark); font-family: 'DM Mono', monospace; font-size: 10px; }
+.issue-state.closed { background: #fff0eb; color: #a94b39; }
+.labels { display: flex; flex-wrap: wrap; gap: 4px; grid-column: 2 / -1; margin-top: -10px; }
+.label { padding: 3px 7px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); font-size: 10px; }
+.empty-state, .loading-state { display: grid; min-height: 300px; place-items: center; color: var(--muted); font-size: 13px; }
+.loader { width: 17px; height: 17px; margin-right: 8px; display: inline-block; border: 2px solid var(--line); border-top-color: var(--lime-dark); border-radius: 50%; vertical-align: -4px; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.footer { padding: 28px 0 0; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 850px) { .hero { align-items: start; flex-direction: column; padding-top: 48px; } .repository-form { width: 100%; } .metrics { grid-template-columns: repeat(2, 1fr); } .panel-toolbar { align-items: stretch; flex-direction: column; } .toolbar-controls { flex-wrap: wrap; } .search-field { flex: 1; } .search-field input { width: 100%; } }
+@media (max-width: 600px) { .app-shell { padding: 0 18px 22px; } .topbar-meta { max-width: 150px; text-align: right; } .repository-fields { flex-direction: column; } .primary-button { min-height: 42px; } .metrics { gap: 8px; } .metric-card { min-height: 120px; padding: 16px; } .metric-card strong { margin-top: 13px; font-size: 31px; } .panel-toolbar, .issue-row { padding-left: 16px; padding-right: 16px; } .issue-row { grid-template-columns: 52px minmax(0, 1fr) 78px; gap: 10px; } .issue-meta { grid-column: 2; grid-row: 2; } .issue-state { grid-column: 3; grid-row: 1; } .labels { grid-column: 2 / -1; } .issue-title { white-space: normal; } .toolbar-controls .select-field { flex: 1; } .select-field select { width: 100%; } }

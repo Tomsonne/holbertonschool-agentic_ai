@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dashboard Sentinel de suivi des issues GitHub" />
+    <title>Sentinel · GitHub Issues</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Sentinel, accueil">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>
+            <strong>Sentinel</strong>
+            <small>Issue intelligence</small>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span id="last-updated">En attente de synchronisation</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">GitHub / monitoring</p>
+            <h1>Le signal dans le bruit.</h1>
+            <p class="hero-copy">Une vue nette des conversations qui font avancer le projet.</p>
+          </div>
+          <form id="repository-form" class="repository-form" novalidate>
+            <label for="repository">Dépôt GitHub</label>
+            <div class="repository-fields">
+              <input id="repository" name="repository" value="microsoft/vscode" spellcheck="false" autocomplete="off" readonly />
+              <button type="submit" class="primary-button"><span aria-hidden="true">↻</span> Actualiser</button>
+            </div>
+            <p class="field-hint">Issues ouvertes et fermées · 30 éléments fournis par MCP</p>
+          </form>
+        </section>
+
+        <section id="status-message" class="status-message" role="status" aria-live="polite" hidden></section>
+
+        <section class="metrics" aria-label="Résumé des issues">
+          <article class="metric-card metric-card-accent">
+            <span class="metric-label">Total visible</span>
+            <strong id="total-count">—</strong>
+            <span class="metric-note">issues et pull requests</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Ouvertes</span>
+            <strong id="open-count">—</strong>
+            <span class="metric-note"><span class="status-bullet open"></span> en cours</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Fermées</span>
+            <strong id="closed-count">—</strong>
+            <span class="metric-note"><span class="status-bullet closed"></span> résolues</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Contributeurs</span>
+            <strong id="author-count">—</strong>
+            <span class="metric-note">auteurs actifs</span>
+          </article>
+        </section>
+
+        <section class="workspace-panel">
+          <div class="panel-toolbar">
+            <div>
+              <p class="eyebrow">Explorer</p>
+              <h2>Issues récentes</h2>
+            </div>
+            <div class="toolbar-controls">
+              <label class="search-field">
+                <span aria-hidden="true">⌕</span>
+                <span class="sr-only">Rechercher une issue</span>
+                <input id="search-input" type="search" placeholder="Rechercher..." autocomplete="off" />
+              </label>
+              <label class="select-field">
+                <span class="sr-only">Filtrer par état</span>
+                <select id="state-filter">
+                  <option value="all">Tous les états</option>
+                  <option value="open">Ouvertes</option>
+                  <option value="closed">Fermées</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span class="sr-only">Trier les issues</span>
+                <select id="sort-select">
+                  <option value="newest">Plus récentes</option>
+                  <option value="oldest">Plus anciennes</option>
+                  <option value="number">Numéro d’issue</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div id="issues-container" class="issues-container" aria-live="polite">
+            <div class="loading-state"><span class="loader" aria-hidden="true"></span> Chargement des issues...</div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">Sentinel <span aria-hidden="true">·</span> Données fournies par GitHub</footer>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

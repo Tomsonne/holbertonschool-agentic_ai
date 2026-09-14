@@ -1,0 +1,23 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github-token-valid",
+      "description": "Token d'accès personnel GitHub",
+      "password": true
+    }
+  ],
+  "servers": {
+    "sentinel": {
+      "type": "stdio",
+      "command": "/usr/bin/env",
+      "args": [
+        "node",
+        "${workspaceFolder}/mcp_server.js"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "${input:github-token-valid}"
+      }
+    }
+  }
+}
