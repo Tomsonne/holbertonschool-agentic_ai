@@ -1,0 +1,4 @@
+services:
+  task-monitor:
+    build: .
+    container_name: task-monitor
