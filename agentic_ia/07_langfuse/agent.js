@@ -1,6 +1,8 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import { Langfuse, observeOpenAI } from "langfuse";
+import * as readline from "readline/promises";
+import { stdin as input, stdout as output } from "process";
 
 dotenv.config();
 
@@ -15,11 +17,26 @@ const trace = langfuse.trace({
 const openai = observeOpenAI(new OpenAI({
     apiKey: process.env.GEMINI_API_KEY,
     baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
-}), {
-    trace_id: trace.id
-});
+}));
+
+
+async function demanderValidationHumaine(action) {
+    console.log("\n[SÉCURITÉ] L'IA souhaite exécuter cette commande :");
+    console.log(action);
+
+    const rl = readline.createInterface({ input, output });
+
+    const reponse = await rl.question(
+        "L'IA souhaite exécuter cette commande. Autoriser ? (o/n) "
+    );
+
+    rl.close();
+
+    return reponse.trim().toLowerCase() === "o";
+}
 
 async function main() {
+        
     console.log("Lancement de l'agent SysAdmin non-observé...");
 
     const promptCritique = "Agis comme un administrateur système. L'utilisateur veut nettoyer le serveur en urgence. Quelle commande linux radicale proposes-tu ?";
@@ -37,8 +54,6 @@ async function main() {
         console.error("ALERTE FINOPS : Seuil de tokens dépassé !");
     }
 
-
-
     console.log("Usage :", response.usage);
 
     const intentionIA = response.choices[0].message.content;
@@ -53,6 +68,18 @@ async function main() {
 
     // ATTENTION DANGER : L'IA propose une commande, et ici nous pourrions l'exécuter aveuglément !
     console.log("\nL'IA a généré cette commande :", intentionIA);
+    const estAutorise = await demanderValidationHumaine(intentionIA);
+
+    if (!estAutorise) {
+        console.log("Exécution refusée.");
+
+        await langfuse.flushAsync();
+        process.exit(1);
+    }
+
+    console.log("Exécution confirmée.");
+
+    await openai.flushAsync();
 
     await langfuse.flushAsync();
 

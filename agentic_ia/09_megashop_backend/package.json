@@ -6,13 +6,19 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "worker": "node src/worker.js",
     "test": "node --test"
   },
   "engines": {
     "node": "20.19.4"
   },
   "dependencies": {
-    "express": "5.1.0"
+    "@langfuse/openai": "5.11.1",
+    "@langfuse/otel": "5.11.1",
+    "@opentelemetry/sdk-trace-node": "2.11.0",
+    "express": "5.1.0",
+    "openai": "6.49.0",
+    "redis": "6.2.1"
   },
   "devDependencies": {
     "supertest": "7.1.1"
