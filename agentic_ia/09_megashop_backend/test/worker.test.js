@@ -3,24 +3,30 @@
 const assert = require('node:assert/strict');
 const { afterEach, describe, it, mock } = require('node:test');
 
-const { createOpenAIAnalyzer } = require('../src/openai-analyzer');
+const {
+  GEMINI_OPENAI_BASE_URL,
+  createEnvironmentAnalyzer,
+  createGeminiAnalyzer,
+} = require('../src/openai-analyzer');
 const { createWorker } = require('../src/worker');
 
-describe('OpenAI transaction analyzer', () => {
+describe('Gemini transaction analyzer', () => {
   afterEach(() => {
     mock.restoreAll();
   });
 
-  it('wraps the OpenAI client with observeOpenAI without a real API call', async () => {
-    const create = mock.fn(async () => ({ output_text: 'transaction accepted' }));
-    const openAIClient = { responses: { create } };
-    const observedClient = { responses: { create } };
+  it('uses the Gemini OpenAI-compatible endpoint through observeOpenAI without a real API call', async () => {
+    const create = mock.fn(async () => ({
+      choices: [{ message: { content: 'transaction accepted' } }],
+    }));
+    const openAIClient = { chat: { completions: { create } } };
+    const observedClient = { chat: { completions: { create } } };
     const createOpenAIClient = mock.fn(() => openAIClient);
     const observeOpenAI = mock.fn((client) => {
       assert.equal(client, openAIClient);
       return observedClient;
     });
-    const analyzeTransaction = createOpenAIAnalyzer({
+    const analyzeTransaction = createGeminiAnalyzer({
       apiKey: 'test-key',
       model: 'test-model',
       createOpenAIClient,
@@ -31,10 +37,34 @@ describe('OpenAI transaction analyzer', () => {
     const result = await analyzeTransaction(notification);
 
     assert.equal(observeOpenAI.mock.callCount(), 1);
+    assert.deepEqual(createOpenAIClient.mock.calls[0].arguments, [{
+      apiKey: 'test-key',
+      baseURL: GEMINI_OPENAI_BASE_URL,
+    }]);
     assert.equal(create.mock.callCount(), 1);
     assert.equal(create.mock.calls[0].arguments[0].model, 'test-model');
-    assert.match(create.mock.calls[0].arguments[0].input, /payment-observed/);
+    assert.match(create.mock.calls[0].arguments[0].messages[0].content, /payment-observed/);
     assert.equal(result, 'transaction accepted');
+  });
+
+  it('takes the Gemini API key and model from the environment', async () => {
+    const analyzeTransaction = mock.fn(async () => 'analysis');
+    const createAnalyzer = mock.fn(() => analyzeTransaction);
+    const environmentAnalyzer = createEnvironmentAnalyzer({
+      GEMINI_API_KEY: 'environment-test-key',
+      GEMINI_MODEL: 'environment-test-model',
+      OPENAI_API_KEY: 'must-not-be-used',
+      OPENAI_MODEL: 'must-not-be-used',
+    }, { createAnalyzer });
+    const notification = { paymentReference: 'payment-environment' };
+
+    await environmentAnalyzer(notification);
+
+    assert.deepEqual(createAnalyzer.mock.calls[0].arguments, [{
+      apiKey: 'environment-test-key',
+      model: 'environment-test-model',
+    }]);
+    assert.deepEqual(analyzeTransaction.mock.calls[0].arguments, [notification]);
   });
 });
 

@@ -1,7 +1,8 @@
 'use strict';
 
 const { createEnvironmentAnalyzer } = require('./openai-analyzer');
-const { registerLangfuseTracing } = require('./observability');
+const { confirmRefund } = require('./human-refund');
+const { registerLangfuseTracing, withNotificationTrace, createScoreRecorder } = require('./observability');
 const { PAYMENT_QUEUE, createRedisClient } = require('./queue');
 
 const wait = (milliseconds) => new Promise((resolve) => {
@@ -11,6 +12,9 @@ const wait = (milliseconds) => new Promise((resolve) => {
 const createWorker = ({
   redisClient,
   analyzeTransaction,
+  askConfirmation = confirmRefund,
+  withTrace = withNotificationTrace,
+  recordScore = createScoreRecorder(),
   logger = console,
   queueName = PAYMENT_QUEUE,
 }) => {
@@ -25,8 +29,31 @@ const createWorker = ({
       }
 
       const notification = JSON.parse(queuedNotification.element);
-      const result = await analyzeTransaction(notification);
-      logger.log('Transaction analysis result:', result);
+      await withTrace(async (traceId) => {
+        if (notification?.type === 'refund') {
+          let approved = false;
+          try {
+            approved = await askConfirmation();
+          } catch (error) {
+            logger.error(`Refund confirmation unavailable: ${error.message}`);
+          }
+
+          try {
+            await recordScore({
+              traceId,
+              name: 'human_refund_approval',
+              value: approved ? 1 : 0,
+            });
+          } catch (error) {
+            logger.error(`Langfuse score error: ${error.message}`);
+          }
+
+          if (!approved) return;
+        }
+
+        const result = await analyzeTransaction(notification);
+        logger.log('Transaction analysis result:', result);
+      });
       return true;
     } catch (error) {
       logger.error(`Worker processing error: ${error.message}`);
